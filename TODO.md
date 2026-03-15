@@ -8,7 +8,7 @@
     ```
 * Modular applet system
 * ~~Move reboot features to inside of the applet~~
-* Automatically reset OnShell state after applet quits in `shell_input()`
+* ~~Automatically reset OnShell state after applet quits in `shell_input()`~~
 * Migrate stuff to libapplet
 * Stop using .replace() for removing beginning of applet **in portable mode**
 * ~~Handle ^C in `shell_input()` literally as easy as putting~~
