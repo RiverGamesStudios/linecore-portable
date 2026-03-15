@@ -5,3 +5,9 @@ path = "tests/*.test"
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright 2026 (C) NexusSfan"
 SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "debian/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright 2026 (C) NexusSfan"
+SPDX-License-Identifier = "CC0-1.0"

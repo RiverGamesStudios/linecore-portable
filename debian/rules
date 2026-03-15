@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	mkdir -p debian/tmp/usr/share/linecore-portable/
+	mkdir -p debian/tmp/usr/bin/
+	cp linecore.py debian/tmp/usr/share/linecore-portable/
+	cp linative.py debian/tmp/usr/share/linecore-portable/
+	cp LineRenderer.py debian/tmp/usr/share/linecore-portable/
+	cp scratch3.py debian/tmp/usr/share/linecore-portable/
+	cp -r applets debian/tmp/usr/share/linecore-portable/
+	cp debian/helper.sh debian/tmp/usr/bin/linecore-portable
+	dh_install

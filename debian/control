@@ -1,0 +1,31 @@
+Source: linecore-portable
+Section: other
+Priority: optional
+Maintainer: NexusSfan <nexussfan@duck.com>
+Build-Depends: debhelper-compat (= 13),
+Standards-Version: 4.7.2
+Homepage: https://github.com/RiverGamesStudios/linecore-portable
+Vcs-Browser: https://github.com/RiverGamesStudios/linecore-portable
+Vcs-Git: https://github.com/RiverGamesStudios/linecore-portable.git
+
+Package: linecore-portable
+Architecture: any
+Depends: python3,
+         python3-tcolorpy,
+         linecore-portable-data (>= ${source:Version}),
+Description: A reimplementation of LineCore OS in Python.
+ The goal of LineCore Portable is to create a portable version of
+ LineCore OS that can be run on different operating systems.
+ .
+ LineCore Portable should be on par with version 0.0.57
+ of LineCore OS.
+
+Package: linecore-portable-data
+Architecture: any
+Recommends: linecore-portable
+Description: A reimplementation of LineCore OS in Python, data files.
+ The goal of LineCore Portable is to create a portable version of
+ LineCore OS that can be run on different operating systems.
+ .
+ LineCore Portable should be on par with version 0.0.57
+ of LineCore OS.
