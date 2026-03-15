@@ -308,12 +308,12 @@ def Function() -> None:
     sync_color()
     startShell()
 
-    try:
-        while True:
+    while True:
+        try:
             sync_shellinfo()
             shell_input()
-    except KeyboardInterrupt:
-        sys.exit(0)
+        except KeyboardInterrupt: # todo: fix compat
+            LineRenderer.TerminalRenderAgent.add(LineRenderer.InputLine.get())
 
 
 if __name__ == "__main__":

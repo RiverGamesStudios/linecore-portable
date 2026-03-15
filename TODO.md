@@ -11,7 +11,7 @@
 * Automatically reset OnShell state after applet quits in `shell_input()`
 * Migrate stuff to libapplet
 * Stop using .replace() for removing beginning of applet **in portable mode**
-* Handle ^C in `shell_input()` literally as easy as putting
+* ~~Handle ^C in `shell_input()` literally as easy as putting~~
     ```python
     except KeyboardInterrupt:
         pass
@@ -20,6 +20,7 @@
 * Add multi-line `write` in portable mode
 * Make a package manager, similar to grab
 * Package for GNU variants
+* Support multiple LineRenderer backends (similar to post-warpix)
 
 <!--
 SPDX-License-Identifier: CC0-1.0

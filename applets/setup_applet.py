@@ -168,7 +168,7 @@ def applet_setup(globals_list: list) -> None:
                 else:
                     db_to_use = globals_list["LFS"]
                 with db_to_use.open("opt/systemdata/region.pref", "r") as f:
-                    LineRenderer.TerminalRenderAgent.add(f"Current Device Name: {f.read()}")
+                    LineRenderer.TerminalRenderAgent.add(f"Current Region: {f.read().decode()}")
                 LineRenderer.TerminalRenderAgent.add("Type region as a country (ex. Canada):")
                 if linecore_portable:
                     LineRenderer.TerminalRenderAgent.add("(Press ENTER to confirm)")
@@ -273,7 +273,7 @@ def applet_setup(globals_list: list) -> None:
                 else:
                     db_to_use = globals_list["LFS"]
                 with db_to_use.open(f"opt/userdata/{CurrentUser.get()}/pwrdenabled.pref", "r") as f:
-                    LineRenderer.TerminalRenderAgent.add(f"Current Value: {f.read()}")
+                    LineRenderer.TerminalRenderAgent.add(f"Current Value: {f.read().decode()}")
                 LineRenderer.TerminalRenderAgent.add("Type 'true' or 'false':")
                 if linecore_portable:
                     LineRenderer.TerminalRenderAgent.add("(Press ENTER to confirm)")
@@ -295,7 +295,7 @@ def applet_setup(globals_list: list) -> None:
                 else:
                     db_to_use = globals_list["LFS"]
                 with db_to_use.open(f"opt/userdata/{CurrentUser.get()}/pwrdenabled.pref", "r") as f:
-                    LineRenderer.TerminalRenderAgent.add(f"Password Enabled: {f.read()}")
+                    LineRenderer.TerminalRenderAgent.add(f"Password Enabled: {f.read().decode()}")
                 LineRenderer.TerminalRenderAgent.add("Type a password:")
                 if linecore_portable:
                     LineRenderer.TerminalRenderAgent.add("(Press ENTER to confirm)")
