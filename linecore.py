@@ -258,7 +258,7 @@ def shell_input() -> None:
     )
     if OnShell.get():
         if console_command == "clear":
-            LineRenderer.TerminalRenderAgent.clear()
+            applets.applet_clear(globals())
         elif console_command == "fetch":
             applets.applet_fetch(globals())
         elif console_command == "help":

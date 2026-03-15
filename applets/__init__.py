@@ -19,6 +19,7 @@ from .rm_applet import applet_rm
 from .lm_applet import applet_lm
 from .setup_applet import applet_setup
 from .write_applet import applet_write
+from .clear_applet import applet_clear
 
 __all__ = [
     "applet_help",
@@ -41,4 +42,5 @@ __all__ = [
     "applet_reboot",
     "applet_setup",
     "applet_write",
+    "applet_clear",
 ]
