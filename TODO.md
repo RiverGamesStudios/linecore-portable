@@ -21,7 +21,7 @@
 * Make a package manager, similar to grab
 * ~~Package for GNU variants~~ (Debian done)
 * Support multiple LineRenderer backends (similar to post-warpix)
-* Remove tcolorpy dependency
+* ~~Remove tcolorpy dependency~~
 
 <!--
 SPDX-License-Identifier: CC0-1.0

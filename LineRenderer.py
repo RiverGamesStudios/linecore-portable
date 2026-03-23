@@ -2,7 +2,13 @@
 # SPDX-FileCopyrightText: Copyright (C) 2026 NexusSfan
 """Reimplementation of LineRenderer from LineCore OS in Python."""
 
-from tcolorpy import Color, tcolor
+try:
+    from tcolorpy import Color, tcolor
+except ImportError:
+    def tcolor(string: str, **kwargs):
+        return string
+    def Color(color):
+        return None
 import scratch3
 
 
