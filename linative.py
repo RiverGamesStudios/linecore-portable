@@ -9,11 +9,17 @@ def shutdown() -> None:
     if sys.platform == "win32":
         os.system("shutdown /s /t 0")
         return
+    if sys.platform == "gnu0":
+        os.system("halt")
+        return
     raise OSError("Unable to reboot")
 
 
 def reboot() -> None:
     if sys.platform == "win32":
         os.system("shutdown /r /t 0")
+        return
+    if sys.platform == "gnu0":
+        os.system("reboot")
         return
     raise OSError("Unable to reboot")
