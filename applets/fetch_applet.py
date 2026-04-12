@@ -3,7 +3,10 @@
 """Reimplementation of the fetch applet from LineCore OS in Python."""
 import os
 import time
-import pyautogui
+try:
+    import pyautogui
+except (ImportError, NotImplementedError):
+    pyautogui = None
 
 def applet_fetch(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
@@ -11,9 +14,13 @@ def applet_fetch(globals_list: list) -> None:
     ShellVer = globals_list["ShellVer"].get()
     LFS = globals_list["LFS"]
     current_mount = globals_list["current_mount"]
-    screen_res = pyautogui.size()
-    screen_width = screen_res.width
-    screen_height = screen_res.height
+    if pyautogui:
+        screen_res = pyautogui.size()
+        screen_width = screen_res.width
+        screen_height = screen_res.height
+    else:
+        screen_width = 0
+        screen_height = 0
     LineRenderer.TerminalRenderAgent.add(LineRenderer.InputLine.get())
     LineRenderer.TerminalRenderAgent.add("")
     LineRenderer.TerminalRenderAgent.add(f"   @@@@@               @@@@@@@@@@@@@@@       OS: LineCoreOS v{SystemSoftwareVer}")
