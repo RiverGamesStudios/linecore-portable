@@ -25,12 +25,15 @@ argv.pop(0)
 
 linecore_portable = False
 native = False
+scroll = False
 
 for arg in argv:
     if arg in ("--portable", "-p"):
         linecore_portable = True
     if arg in ("--native", "-n"):
         native = True
+    if arg in ("--scroll", "-s"):
+        scroll = True
     if arg in ("--list-applets", "-a"):
         print("Supported applets:")
         for applet in applets.__all__:
@@ -41,12 +44,15 @@ for arg in argv:
         print("Arguments:")
         print("\t --portable, -p: Custom LineCore Portable changes to LineCoreOS")
         print("\t --native, -n: Power-related commands are also synced to host.")
+        print("\t --scroll, -s: Limit amount of lines to 28, similar to real LineCoreOS.")
         print("\t --list-applets, -a: Show all supported applets")
         print("\t -h, /?, --help: Show this help message")
         print()
         print("LineCore Portable is made by NexusSfan")
         print("LineCoreOS is made by Cole Bohte")
         sys.exit(0)
+
+LineRenderer.ScrollEnabled.change(scroll)
 
 DeviceName = scratch3.Variable("SYSTEM")
 ConsoleInput = scratch3.Variable("")

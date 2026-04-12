@@ -15,6 +15,9 @@ import scratch3
 class RenderAgent(scratch3.List):
     def add(self, value):
         super().add(value)
+        if ScrollEnabled:
+            if len(self.list) > 28:
+                super().remove(1)
         EmptyLine.change(len(self.list) + 1)
         Function()
 
@@ -35,6 +38,7 @@ EmptyLineEnabled = scratch3.Variable(True)
 TextColor = scratch3.Variable("#FFFFFF")
 BgColor = scratch3.Variable("#000000")
 InputLine = scratch3.Variable("")
+ScrollEnabled = scratch3.Variable(False)
 
 
 def print_tcolor(to_print: str, color: Color, bg_color: Color, end: str = "\n") -> None:
