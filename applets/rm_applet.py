@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: Copyright (C) 2026 NexusSfan
 """Reimplementation of the rm applet from LineCore OS in Python."""
 
+
 def applet_rm(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     linecore_portable = globals_list["linecore_portable"]
@@ -10,7 +11,9 @@ def applet_rm(globals_list: list) -> None:
     if current_cmd == "rm #help":
         LineRenderer.TerminalRenderAgent.add("rm Help")
         LineRenderer.TerminalRenderAgent.add("")
-        LineRenderer.TerminalRenderAgent.add("RM works by removing the user specified mount.")
+        LineRenderer.TerminalRenderAgent.add(
+            "RM works by removing the user specified mount."
+        )
         LineRenderer.TerminalRenderAgent.add("")
         LineRenderer.TerminalRenderAgent.add("Example Usage:")
         LineRenderer.TerminalRenderAgent.add("'rm ExternalStorage'")
@@ -21,7 +24,9 @@ def applet_rm(globals_list: list) -> None:
     if arg == "" and linecore_portable:
         return
     if arg == "LFS":
-        LineRenderer.TerminalRenderAgent.add("RM: Failed to remove mount; the system mount cannot be removed")
+        LineRenderer.TerminalRenderAgent.add(
+            "RM: Failed to remove mount; the system mount cannot be removed"
+        )
         return
     globals_list["mounts"].pop(arg, None)
     globals_list["LFS"] = mounts["LFS"]

@@ -5,10 +5,14 @@
 try:
     from tcolorpy import Color, tcolor
 except ImportError:
+
     def tcolor(string: str, **kwargs):
         return string
+
     def Color(color):
         return None
+
+
 import scratch3
 
 
@@ -67,7 +71,10 @@ def Function() -> None:
     currentline = 1
 
     for _ in TerminalRenderAgent:
-        if TerminalRenderAgent.get(currentline) == EmptyLine.get() and EmptyLineEnabled.get():
+        if (
+            TerminalRenderAgent.get(currentline) == EmptyLine.get()
+            and EmptyLineEnabled.get()
+        ):
             print_ps1(InputLine.get())
         else:
             print_tcolor(

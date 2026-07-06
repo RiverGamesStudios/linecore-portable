@@ -6,11 +6,13 @@ import time
 import datetime
 import zipfile
 
+
 def applet_off(globals_list: list) -> None:
     if globals_list["native"]:
         globals_list["linative"].shutdown()
     else:
         sys.exit(0)
+
 
 def applet_shutdown(globals_list: list) -> None:
     OnShell = globals_list["OnShell"]
@@ -29,7 +31,9 @@ def applet_shutdown(globals_list: list) -> None:
     )
     now = datetime.datetime.now()
     formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
-    LineRenderer.TerminalRenderAgent.add(f"Shutdown called @ {formatted_time} for system '{DeviceName.get()}'")
+    LineRenderer.TerminalRenderAgent.add(
+        f"Shutdown called @ {formatted_time} for system '{DeviceName.get()}'"
+    )
     LineRenderer.TerminalRenderAgent.add("Shutdown in 5")
     time.sleep(1)
     LineRenderer.TerminalRenderAgent.remove(len(list(LineRenderer.TerminalRenderAgent)))
@@ -49,7 +53,7 @@ def applet_shutdown(globals_list: list) -> None:
     time.sleep(1)
     LineRenderer.TerminalRenderAgent.clear()
     # yes, this is really the way to export to a ZIP on the disk in zipfile. horrible design.
-    with zipfile.ZipFile('LFS.zip', 'w') as zip_write:
+    with zipfile.ZipFile("LFS.zip", "w") as zip_write:
         for file_info in real_LFS.infolist():
             # SHORE said that this is supposed to save all mounts but that doesn't make sense
             # it only loads LFS.zip from storage, nothing else.
@@ -64,6 +68,7 @@ def applet_shutdown(globals_list: list) -> None:
     LineRenderer.TerminalRenderAgent.add("")
     input()
     applet_off(globals_list)
+
 
 def applet_reboot(globals_list: list) -> None:
     OnShell = globals_list["OnShell"]
@@ -82,7 +87,9 @@ def applet_reboot(globals_list: list) -> None:
     )
     now = datetime.datetime.now()
     formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
-    LineRenderer.TerminalRenderAgent.add(f"Reboot called @ {formatted_time} for system '{DeviceName.get()}'")
+    LineRenderer.TerminalRenderAgent.add(
+        f"Reboot called @ {formatted_time} for system '{DeviceName.get()}'"
+    )
     LineRenderer.TerminalRenderAgent.add("Rebooting in 5")
     time.sleep(1)
     LineRenderer.TerminalRenderAgent.remove(len(list(LineRenderer.TerminalRenderAgent)))
@@ -103,7 +110,7 @@ def applet_reboot(globals_list: list) -> None:
     LineRenderer.InputLine.change("default | INIT @ SYSTEM :")
     LineRenderer.TerminalRenderAgent.clear()
     # yes, this is really the way to export to a ZIP on the disk in zipfile. horrible design.
-    with zipfile.ZipFile('LFS.zip', 'w') as zip_write:
+    with zipfile.ZipFile("LFS.zip", "w") as zip_write:
         for file_info in real_LFS.infolist():
             data = real_LFS.read(file_info.filename)
             zip_write.writestr(file_info, data)

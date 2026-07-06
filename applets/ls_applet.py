@@ -3,6 +3,7 @@
 """Reimplementation of the ls applet from LineCore OS in Python."""
 import zipfile
 
+
 def applet_ls(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     LFS = globals_list["LFS"]

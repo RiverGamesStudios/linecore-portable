@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: Copyright (C) 2026 NexusSfan
 """Reimplementation of the help applet from LineCore OS in Python."""
 
+
 def applet_help(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     LineRenderer.TerminalRenderAgent.add("LineShell Help")
@@ -25,7 +26,11 @@ def applet_help(globals_list: list) -> None:
     LineRenderer.TerminalRenderAgent.add("")
     LineRenderer.TerminalRenderAgent.add("Programs:")
     LineRenderer.TerminalRenderAgent.add("setup - The LineCoreOS Setup Utility")
-    LineRenderer.TerminalRenderAgent.add("lineshell - The shell designed for LineCoreOS & LineFS")
+    LineRenderer.TerminalRenderAgent.add(
+        "lineshell - The shell designed for LineCoreOS & LineFS"
+    )
     LineRenderer.TerminalRenderAgent.add("fetch - A simple fetch program")
     LineRenderer.TerminalRenderAgent.add("read - A barebones text file viewer")
-    LineRenderer.TerminalRenderAgent.add("write - An ultra-simple, lightweight text editor for LineCoreOS")
+    LineRenderer.TerminalRenderAgent.add(
+        "write - An ultra-simple, lightweight text editor for LineCoreOS"
+    )

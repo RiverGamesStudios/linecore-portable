@@ -4,6 +4,7 @@
 import os
 import applets.libapplet
 
+
 def applet_rd(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     LFS = globals_list["LFS"]
@@ -13,7 +14,9 @@ def applet_rd(globals_list: list) -> None:
     if current_cmd == "rd #help":
         LineRenderer.TerminalRenderAgent.add("RD Help")
         LineRenderer.TerminalRenderAgent.add("")
-        LineRenderer.TerminalRenderAgent.add("RD works by removing the user specified directory.")
+        LineRenderer.TerminalRenderAgent.add(
+            "RD works by removing the user specified directory."
+        )
         LineRenderer.TerminalRenderAgent.add("")
         LineRenderer.TerminalRenderAgent.add("Example Usage:")
         LineRenderer.TerminalRenderAgent.add("'rd Homework'")
@@ -22,7 +25,9 @@ def applet_rd(globals_list: list) -> None:
         return
     arg = current_cmd.replace("rd ", "")
     if arg == "":
-        LineRenderer.TerminalRenderAgent.add(f"RD: Error when deleting directory '{arg}/'; please specify a directory name.")
+        LineRenderer.TerminalRenderAgent.add(
+            f"RD: Error when deleting directory '{arg}/'; please specify a directory name."
+        )
         return
     combinedpath = os.path.join(pwd, arg)
     slashpath = f"{combinedpath}/"

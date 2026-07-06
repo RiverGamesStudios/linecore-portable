@@ -44,7 +44,9 @@ for arg in argv:
         print("Arguments:")
         print("\t --portable, -p: Custom LineCore Portable changes to LineCoreOS")
         print("\t --native, -n: Power-related commands are also synced to host.")
-        print("\t --scroll, -s: Limit amount of lines to 28, similar to real LineCoreOS.")
+        print(
+            "\t --scroll, -s: Limit amount of lines to 28, similar to real LineCoreOS."
+        )
         print("\t --list-applets, -a: Show all supported applets")
         print("\t -h, /?, --help: Show this help message")
         print()
@@ -308,6 +310,7 @@ def shell_input() -> None:
         OnShell.change(1)
         CurrentApp.change("")
 
+
 def Function() -> None:
     init()
     initFinished()
@@ -318,7 +321,7 @@ def Function() -> None:
         try:
             sync_shellinfo()
             shell_input()
-        except KeyboardInterrupt: # todo: fix compat
+        except KeyboardInterrupt:  # todo: fix compat
             LineRenderer.TerminalRenderAgent.add(LineRenderer.InputLine.get())
 
 

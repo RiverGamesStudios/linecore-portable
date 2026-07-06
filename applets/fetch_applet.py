@@ -3,10 +3,12 @@
 """Reimplementation of the fetch applet from LineCore OS in Python."""
 import os
 import time
+
 try:
     import pyautogui
 except (ImportError, NotImplementedError):
     pyautogui = None
+
 
 def applet_fetch(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
@@ -23,23 +25,59 @@ def applet_fetch(globals_list: list) -> None:
         screen_height = 0
     LineRenderer.TerminalRenderAgent.add(LineRenderer.InputLine.get())
     LineRenderer.TerminalRenderAgent.add("")
-    LineRenderer.TerminalRenderAgent.add(f"   @@@@@               @@@@@@@@@@@@@@@       OS: LineCoreOS v{SystemSoftwareVer}")
+    LineRenderer.TerminalRenderAgent.add(
+        f"   @@@@@               @@@@@@@@@@@@@@@       OS: LineCoreOS v{SystemSoftwareVer}"
+    )
     with LFS.open("opt/systemdata/devicename.pref") as f:
-        LineRenderer.TerminalRenderAgent.add(f"   @@@@@             @@@@@@@@@@@@@@@@@@@     Host: {f.read().decode()}")
-    LineRenderer.TerminalRenderAgent.add(f"   @@@@@           @@@@@@           @@@@@@   Kernel: LineKernel{SystemSoftwareVer}")
-    LineRenderer.TerminalRenderAgent.add(f"   @@@@@           @@@@@                     Uptime: {round(time.monotonic())}")
-    LineRenderer.TerminalRenderAgent.add("   @@@@@           @@@@@                     Installed Packages: 5 (LineCoreOS)")
-    LineRenderer.TerminalRenderAgent.add(f"   @@@@@           @@@@@@           @@@@@@   Shell: LineShell v{ShellVer}")
-    LineRenderer.TerminalRenderAgent.add(f"   @@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@     Display Resolution: {screen_width}x{screen_height}")
-    LineRenderer.TerminalRenderAgent.add(f"   @@@@@@@@@@@@@@@@    @@@@@@@@@@@@@@@       Render Resolution: {screen_width}x{screen_height}") # terminal doesn't have render res i guess
-    LineRenderer.TerminalRenderAgent.add(f"                                             Scaled Resolution: {screen_width}x{screen_height}") # terminal doesn't have scaled res i guess
-    LineRenderer.TerminalRenderAgent.add("        @@@@@@@@@@@@@            @@@@@@@     Terminal: LineCoreOS TTY")
-    LineRenderer.TerminalRenderAgent.add(f"     @@@@@@@@@@@@@@@@@@@     @@@@@@@@@@@@@@  CPU Threads: {os.cpu_count()}")
-    LineRenderer.TerminalRenderAgent.add("   @@@@@@@         @@@@@@   @@@@@      @@@@@ GPU: Unknown") # todo: implement
-    LineRenderer.TerminalRenderAgent.add(f"   @@@@@            @@@@@@  @@@@@@@@@@       Current Disk: {current_mount}")
-    LineRenderer.TerminalRenderAgent.add("  @@@@@             @@@@@@    @@@@@@@@@@@@   ╔═══════╗")
-    LineRenderer.TerminalRenderAgent.add("   @@@@@           @@@@@@           @@@@@@   ║ ██|   ║")
-    LineRenderer.TerminalRenderAgent.add("   @@@@@@@@    @@@@@@@@@  @@@@@@    @@@@@@   ╚═══════╝")
-    LineRenderer.TerminalRenderAgent.add("     @@@@@@@@@@@@@@@@      @@@@@@@@@@@@@@    ")
-    LineRenderer.TerminalRenderAgent.add("         @@@@@@@@             @@@@@@@@       ")
+        LineRenderer.TerminalRenderAgent.add(
+            f"   @@@@@             @@@@@@@@@@@@@@@@@@@     Host: {f.read().decode()}"
+        )
+    LineRenderer.TerminalRenderAgent.add(
+        f"   @@@@@           @@@@@@           @@@@@@   Kernel: LineKernel{SystemSoftwareVer}"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        f"   @@@@@           @@@@@                     Uptime: {round(time.monotonic())}"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        "   @@@@@           @@@@@                     Installed Packages: 5 (LineCoreOS)"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        f"   @@@@@           @@@@@@           @@@@@@   Shell: LineShell v{ShellVer}"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        f"   @@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@     Display Resolution: {screen_width}x{screen_height}"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        f"   @@@@@@@@@@@@@@@@    @@@@@@@@@@@@@@@       Render Resolution: {screen_width}x{screen_height}"
+    )  # terminal doesn't have render res i guess
+    LineRenderer.TerminalRenderAgent.add(
+        f"                                             Scaled Resolution: {screen_width}x{screen_height}"
+    )  # terminal doesn't have scaled res i guess
+    LineRenderer.TerminalRenderAgent.add(
+        "        @@@@@@@@@@@@@            @@@@@@@     Terminal: LineCoreOS TTY"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        f"     @@@@@@@@@@@@@@@@@@@     @@@@@@@@@@@@@@  CPU Threads: {os.cpu_count()}"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        "   @@@@@@@         @@@@@@   @@@@@      @@@@@ GPU: Unknown"
+    )  # todo: implement
+    LineRenderer.TerminalRenderAgent.add(
+        f"   @@@@@            @@@@@@  @@@@@@@@@@       Current Disk: {current_mount}"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        "  @@@@@             @@@@@@    @@@@@@@@@@@@   ╔═══════╗"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        "   @@@@@           @@@@@@           @@@@@@   ║ ██|   ║"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        "   @@@@@@@@    @@@@@@@@@  @@@@@@    @@@@@@   ╚═══════╝"
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        "     @@@@@@@@@@@@@@@@      @@@@@@@@@@@@@@    "
+    )
+    LineRenderer.TerminalRenderAgent.add(
+        "         @@@@@@@@             @@@@@@@@       "
+    )
     LineRenderer.TerminalRenderAgent.add("")

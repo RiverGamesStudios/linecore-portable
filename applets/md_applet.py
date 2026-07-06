@@ -4,6 +4,7 @@
 import os
 import zipfile
 
+
 def applet_md(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     LFS = globals_list["LFS"]
@@ -13,7 +14,9 @@ def applet_md(globals_list: list) -> None:
     if current_cmd == "md #help":
         LineRenderer.TerminalRenderAgent.add("MD Help")
         LineRenderer.TerminalRenderAgent.add("")
-        LineRenderer.TerminalRenderAgent.add("MD works by creating a directory with the user specified name.")
+        LineRenderer.TerminalRenderAgent.add(
+            "MD works by creating a directory with the user specified name."
+        )
         LineRenderer.TerminalRenderAgent.add("")
         LineRenderer.TerminalRenderAgent.add("Example Usage:")
         LineRenderer.TerminalRenderAgent.add("'md Homework'")
@@ -22,7 +25,9 @@ def applet_md(globals_list: list) -> None:
         return
     arg = current_cmd.replace("md ", "")
     if "/" in arg:
-        LineRenderer.TerminalRenderAgent.add(f"MD: Error when creating directory '{arg}/'; directory name cannot contain '/'.")
+        LineRenderer.TerminalRenderAgent.add(
+            f"MD: Error when creating directory '{arg}/'; directory name cannot contain '/'."
+        )
         return
     combinedpath = os.path.join(pwd, arg)
     slashpath = f"{combinedpath}/"

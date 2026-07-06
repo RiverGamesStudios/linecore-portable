@@ -4,6 +4,7 @@
 import os
 import zipfile
 
+
 def applet_cd(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     LFS = globals_list["LFS"]
@@ -13,7 +14,9 @@ def applet_cd(globals_list: list) -> None:
     if current_cmd == "cd #help":
         LineRenderer.TerminalRenderAgent.add("CD Help")
         LineRenderer.TerminalRenderAgent.add("")
-        LineRenderer.TerminalRenderAgent.add("CD works on adding the given path to the current directory.")
+        LineRenderer.TerminalRenderAgent.add(
+            "CD works on adding the given path to the current directory."
+        )
         LineRenderer.TerminalRenderAgent.add("")
         LineRenderer.TerminalRenderAgent.add("Example Usage:")
         LineRenderer.TerminalRenderAgent.add("'cd ../setupuser'")
@@ -25,7 +28,7 @@ def applet_cd(globals_list: list) -> None:
     if combinedpath.endswith("/") and not linecore_portable:
         return
     parsedpath = os.path.normpath(combinedpath)
-    if parsedpath != '.':
+    if parsedpath != ".":
         parsedpathwithslash = f"{parsedpath}/"
     else:
         parsedpathwithslash = ""

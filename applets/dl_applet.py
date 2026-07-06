@@ -4,6 +4,7 @@
 import os
 import applets.libapplet
 
+
 def applet_dl(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     LFS = globals_list["LFS"]
@@ -13,7 +14,9 @@ def applet_dl(globals_list: list) -> None:
     if current_cmd == "dl #help":
         LineRenderer.TerminalRenderAgent.add("DL Help")
         LineRenderer.TerminalRenderAgent.add("")
-        LineRenderer.TerminalRenderAgent.add("DL works by deleting the user specified file.")
+        LineRenderer.TerminalRenderAgent.add(
+            "DL works by deleting the user specified file."
+        )
         LineRenderer.TerminalRenderAgent.add("")
         LineRenderer.TerminalRenderAgent.add("Example Usage:")
         LineRenderer.TerminalRenderAgent.add("'dl math.txt'")
@@ -22,7 +25,9 @@ def applet_dl(globals_list: list) -> None:
         return
     arg = current_cmd.replace("dl ", "")
     if arg == "":
-        LineRenderer.TerminalRenderAgent.add(f"DL: Error when deleting file '{arg}'; please specify a file name.")
+        LineRenderer.TerminalRenderAgent.add(
+            f"DL: Error when deleting file '{arg}'; please specify a file name."
+        )
         return
     combinedpath = os.path.join(pwd, arg)
     globals_list["LFS"] = applets.libapplet.delete_file(LFS, combinedpath)

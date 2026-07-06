@@ -5,6 +5,7 @@ import urllib.request
 import io
 import zipfile
 
+
 def applet_am(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     OnShell = globals_list["OnShell"]
@@ -18,10 +19,14 @@ def applet_am(globals_list: list) -> None:
     if current_cmd == "am #help":
         LineRenderer.TerminalRenderAgent.add("AM Help")
         LineRenderer.TerminalRenderAgent.add("")
-        LineRenderer.TerminalRenderAgent.add("AM works by adding the user specified URL as a mount.")
+        LineRenderer.TerminalRenderAgent.add(
+            "AM works by adding the user specified URL as a mount."
+        )
         LineRenderer.TerminalRenderAgent.add("")
         LineRenderer.TerminalRenderAgent.add("Example Usage:")
-        LineRenderer.TerminalRenderAgent.add("'am https://colebohte.github.io/fs/test.zip'")
+        LineRenderer.TerminalRenderAgent.add(
+            "'am https://colebohte.github.io/fs/test.zip'"
+        )
         return
     if current_cmd == "am" and linecore_portable:
         return
@@ -29,10 +34,14 @@ def applet_am(globals_list: list) -> None:
     OnShell.change(0)
     CurrentApp.change("am")
     CurrentFSLocation.change("AM")
-    LineRenderer.InputLine.change(f"{CurrentUser.get()} | {CurrentFSLocation.get()} @ {DeviceName.get()} :")
+    LineRenderer.InputLine.change(
+        f"{CurrentUser.get()} | {CurrentFSLocation.get()} @ {DeviceName.get()} :"
+    )
     LineRenderer.TerminalRenderAgent.add("Choose a name for the mount:")
     mount_name = input("")
-    LineRenderer.TerminalRenderAgent.add(f"{CurrentUser.get()} | {CurrentFSLocation.get()} @ {DeviceName.get()} : {mount_name}")
+    LineRenderer.TerminalRenderAgent.add(
+        f"{CurrentUser.get()} | {CurrentFSLocation.get()} @ {DeviceName.get()} : {mount_name}"
+    )
     with urllib.request.urlopen(arg) as response:
         mount_zip = zipfile.ZipFile(io.BytesIO(response.read()))
     mounts[mount_name] = mount_zip
@@ -44,4 +53,6 @@ def applet_am(globals_list: list) -> None:
     if mount_name == "LFS":
         globals_list["pwd"] = ""
     LineRenderer.TerminalRenderAgent.add(f"AM: Added mount '{mount_name}/'")
-    LineRenderer.TerminalRenderAgent.add(f"AM: To switch to this mount use 'sm {mount_name}'")
+    LineRenderer.TerminalRenderAgent.add(
+        f"AM: To switch to this mount use 'sm {mount_name}'"
+    )

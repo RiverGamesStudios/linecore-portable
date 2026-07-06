@@ -4,6 +4,7 @@
 import os
 import applets.libapplet
 
+
 def applet_read(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     current_cmd = globals_list["current_cmd"].get()
@@ -13,7 +14,9 @@ def applet_read(globals_list: list) -> None:
     if current_cmd == "read #help":
         LineRenderer.TerminalRenderAgent.add("READ Help")
         LineRenderer.TerminalRenderAgent.add("")
-        LineRenderer.TerminalRenderAgent.add("READ works by displaying the contents of the user specified file.")
+        LineRenderer.TerminalRenderAgent.add(
+            "READ works by displaying the contents of the user specified file."
+        )
         LineRenderer.TerminalRenderAgent.add("READ supports all text file types.")
         LineRenderer.TerminalRenderAgent.add("")
         LineRenderer.TerminalRenderAgent.add("Example Usage:")

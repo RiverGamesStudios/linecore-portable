@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: Copyright (C) 2026 NexusSfan
 """Reimplementation of the sm applet from LineCore OS in Python."""
 
+
 def applet_sm(globals_list: list) -> None:
     LineRenderer = globals_list["LineRenderer"]
     mounts = globals_list["mounts"]
@@ -10,7 +11,9 @@ def applet_sm(globals_list: list) -> None:
     if current_cmd == "sm #help":
         LineRenderer.TerminalRenderAgent.add("SM Help")
         LineRenderer.TerminalRenderAgent.add("")
-        LineRenderer.TerminalRenderAgent.add("SM works by switching to the user specified mount.")
+        LineRenderer.TerminalRenderAgent.add(
+            "SM works by switching to the user specified mount."
+        )
         LineRenderer.TerminalRenderAgent.add("")
         LineRenderer.TerminalRenderAgent.add("Example Usage:")
         LineRenderer.TerminalRenderAgent.add("'sm ExternalStorage'")
