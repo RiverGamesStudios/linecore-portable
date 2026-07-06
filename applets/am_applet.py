@@ -37,7 +37,7 @@ def applet_am(globals_list: list) -> None:
         mount_zip = zipfile.ZipFile(io.BytesIO(response.read()))
     mounts[mount_name] = mount_zip
     # TODO: unhardcode everything from LFS so we don't have to do this
-    # although, this is what linecore does normally [Sprite: applets//am], so who cares
+    # although, this is what linecore does normally [Sprite applets//am], so who cares
     globals_list["LFS"] = mounts["LFS"]
     # reset pwd, don't want to break the lineshell
     # although sm does this as well(?) so no problems here
